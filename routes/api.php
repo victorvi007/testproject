@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\AdminLoginController;
+use App\Http\Controllers\Auth\AdminRegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +22,11 @@ Route::get('/unauthenticated',function(){
     return ['unauthenticated'];
 })->name('unauthenticated');
 
+Route::post('/admin/register',[AdminRegisterController::class,'register']);
+Route::post('/admin/login',[AdminLoginController::class,'login']);
+
 Route::post('/register',[RegisterController::class,'register']);
 Route::post('/login',[LoginController::class,'login']);
-// Route::post('/login',[LoginController::class,'login']);
 
 // user routes
 Route::get('/all-post',[SiteController::class,'getAllPosts']);

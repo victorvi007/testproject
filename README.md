@@ -19,3 +19,20 @@ The json formatted data is then saved to the database. The selected posts were t
 Accessing Posts 
 ## '/api/all-post'
 With the implementation complete, users can now access all posts by making a GET request to the '/api/all-post' endpoint. The response will contain an array of posts, each with its relevant details.
+
+<!-- Folders -->
+Request folder -> app\Http\Requests\
+Repository folder-> app\Http\Repository\
+Command folder ->app\Console\Commands\
+
+<!-- Admin routes -->
+'/all-post'
+'/api/users'
+'/all-post/{id}'
+'/all-post/{id}/delete'
+'/all-post/{id}/update'
+
+<!-- User Routes -->
+'/post'
+'/all-post/{id}'
+'/all-post'
