@@ -28,20 +28,27 @@ class FetchAndSaveData extends Command
     public function handle(PostRepository $postRepository)
     {
         $URL = "https://jsonplaceholder.typicode.com/posts";
+        // Make get request
         $response = Http::get($URL);
+
+        // get response as json
         $postData = $response->json();
 
+        // select first 5 posts
         $selectPosts = array_splice($postData, 0,5);
-        $userId = $this->option('userid');
-        foreach($selectPosts as $post){
 
+        // get input userId passed in the command line
+        $userId = $this->option('userid');
+
+        // get single post from the 5 posts
+        foreach($selectPosts as $post){
+            // convert to json formart
             $jsonData =  json_encode($post,true);
+
+            // save to database
             $postRepository->createNewPost($userId,$jsonData);
             // return info($jsonData);
         }
-        // if($storePost){
-        //     return response()->json('Post saved to database');
-        // }
-        // return response()->json('Something went wrong, Please try again');
+       
     }
 }
