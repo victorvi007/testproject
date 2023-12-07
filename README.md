@@ -1,9 +1,19 @@
 Test Project Documentation
 
 
+
 Develop a Custom Artisan Command
 
 To initiate the process, I created a custom artisan command named populate:posts. This command would serve as a tool for fetching and storing posts from an external API. The command also included an option to specify the user ID for whom the posts would be fetched.
+
+
+
+To fetch post run 
+## php artisan populate:posts {--userid=}
+
+then run command below to generate Personal access Client 
+## php artisan passport:client --personal
+
 
 
 Develop a Custom Artisan Command
@@ -26,6 +36,8 @@ Repository folder-> app\Http\Repository\
 Command folder ->app\Console\Commands\
 
 <!-- Admin routes -->
+'api/admin/login'
+'api/admin/register'
 '/all-post'
 '/api/users'
 '/all-post/{id}'
@@ -33,6 +45,8 @@ Command folder ->app\Console\Commands\
 '/all-post/{id}/update'
 
 <!-- User Routes -->
+'/api/login'
+'/api/register'
 '/post'
 '/all-post/{id}'
 '/all-post'
