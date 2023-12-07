@@ -11,7 +11,6 @@ use App\Http\Requests\Auth\LoginRequest;
 class AdminLoginController extends Controller
 {
     public function login (LoginRequest $loginRequest,UserRepository $userRepository){
-        // $storeUser = $userRepository->createUser($loginRequest);
 
         $login =  Auth::attempt(['email' => $loginRequest->email, 'password' => $loginRequest->password]);
 

@@ -24,9 +24,9 @@ class RegisterController extends Controller
         if($storeUser){
            $login =  Auth::attempt(['email' => $registerRequest->email, 'password' => $registerRequest->password]);
 
-            //  if login attempt was successful
+            //  if login was successful
            if($login){
-               $token = auth()->user()->createToken('authentication',['view-post','read-post','update-post','delete-post'])->accessToken;
+               $token = auth()->user()->createToken('authentication',['view-post','read-post'])->accessToken;
 
                $message = ['message'=>'something went wrong, try again','status'=>200,'token'=>$token];
                return response()->json($token);
